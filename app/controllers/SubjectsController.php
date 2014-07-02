@@ -1,15 +1,20 @@
 <?php
 
-class Subject extends \BaseController {
+class SubjectsController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($id)
 	{
-		//
+            $alumno = Student::find($id);
+            $plan_estudio = Syllabus::where('id', $alumno->syllabus_id)->get();
+            $materias_plan = Subject::where('syllabus_id', $plan_estudio[0]->id)->get();
+            
+            $datos_alumno = array('alumno'=>$alumno, 'plan_estudio'=>$plan_estudio, 'materias_plan'=>$materias_plan);
+            return  Response::json($datos_alumno);
 	}
 
 
