@@ -23,6 +23,8 @@ class SubjectsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+        
+//        public function 
 	public function create()
 	{
 		//
