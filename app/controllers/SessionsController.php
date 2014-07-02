@@ -42,8 +42,11 @@ class SessionsController extends \BaseController {
 					'email' => $input['email'],
 					'password' => $input['password']
 				]);
+
+				$u = array('id' => $user->id, 'name' => $user->real_name, 'file' => $user->student_file);
+
 				if( $attempt ){
-					return Response::json(array('login' => 'ok', 'user' => $user), 200 );
+					return Response::json(array('login' => 'ok', 'user' => $u), 200 );
 				}
 				else{
 					return Response::json(array('login' => 'fail', 'error' => 'auth-error'), 417);
@@ -108,8 +111,20 @@ class SessionsController extends \BaseController {
 			if ( ! Auth::check() ){
 				return Response::json(array('logout' => 'ok'));
 			}
+			return Response::json(array('logout' => 'fail'));
 		}
-		return Response::json(array('logout' => 'fail'));
+		
+	}
+
+
+	public function session_status(){
+
+		if ( Request::ajax() ) {  
+			if (Auth::check()){
+				return Response::json(array('session_status' => 'logged'));
+			}
+			return Response::json(array('session_status' => 'not-logged'));
+		}
 	}
 
 

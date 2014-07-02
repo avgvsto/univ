@@ -18,6 +18,7 @@ Route::resource('users', 'UsersController');
 
 Route::post('login', 'SessionsController@store');
 Route::post('logout', 'SessionsController@destroy');
+Route::post('session-status', 'SessionsController@session_status');
 
 Route::get('profile', function(){
     return "Bienvenido usuario " . Auth::user()->email;
