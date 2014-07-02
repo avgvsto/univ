@@ -10,6 +10,22 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::resource('sessions', 'SessionsController');
+Route::resource('users', 'UsersController');
+//
+//Route::get('login', 'SessionsController@create');
+//Route::get('logout', 'SessionsController@destroy');
+
+Route::post('login', 'SessionsController@store');
+Route::post('logout', 'SessionsController@destroy');
+
+Route::get('profile', function(){
+    return "Bienvenido usuario " . Auth::user()->email;
+})->before('auth');
+
+Route::get('/', ['as' => 'home', function(){
+    return 'Página principal';
+}]);
 
 Route::get('/', function()
 {
