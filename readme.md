@@ -1,25 +1,48 @@
-## Laravel PHP Framework
+## UNIV
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
 [![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+Back-end sistema para teléfono
+=======
+Vistas del sistema.
+-------------------
+[![Screen Shot](images/screen1.png)](http://github.com/avgvsto/univ/)
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+[![Screen Shot](images/screen2.png)](http://github.com/avgvsto/univ/)
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Servicios básicos a prestar
+---------------------------
 
-## Official Documentation
+	- Información de las carreras
+	- Programas de las materias
+	- Situación Académica
+	
+Tecnologías
+-----------
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+La API está hecha con Laravel 4. Vamos a usar este framework como base para la aplicaciónn con RESTful. Del lado cliente se utiliza JQuery-Mobile.
 
-### Contributing To Laravel
+* [Github] - Sistema de versionado
+* [Ajax] - Para conectarse en forma asíncrona
+* [Laravel] - Framework de PHP
+* [JQuery-Mobile] - UI responsive para móviles
+* [MySQL] - Como DB, a definir 
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+### Editores del sistema
 
-### License
+* Octavio Coria
+* Tadeo Riveros Koloszwa
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+Licencia
+--------
+MIT
+
+[Github]:https://github.com/
+[Ajax]:https://api.jquery.com/jQuery.ajax/
+[Laravel]:http://laravel.com/
+[JQuery-Mobile]:demos.jquerymobile.com/1.4.2/
+[MySQL]:http://www.mysql.com/products/workbench/
+	
