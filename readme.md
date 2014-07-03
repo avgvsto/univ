@@ -6,7 +6,7 @@
 
 Sistema de información y administración de la UDA
 =======
-[![Screen Shot](images/screen1.png)](http://github.com/avgvsto/univ/markdown-edit)
+[![Screen Shot](images/screen1.png)](http://github.com/avgvsto/univ/)
 Servicios básicos a prestar
 ---------------------------
 
