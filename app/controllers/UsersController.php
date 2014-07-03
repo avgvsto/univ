@@ -43,7 +43,7 @@ class UsersController extends \BaseController {
             $validator = Validator::make(Input::all(), $rules);
 
             if ($validator->fails()) {
-                return Response::json(array('state' => 'not save - data error'));
+                return Response::json(array('saved' => 'no - data error'));
             } else {
                 // store
                 $user = new User;
@@ -53,15 +53,15 @@ class UsersController extends \BaseController {
                 $user->password = Hash::make( Input::get('password') );
 
                 if( $user->save() ){
-                    return Response::json(array('state' => 'saved OK'));	
+                    return Response::json(array('saved' => 'ok'));	
                 }
                 else{
-                	return Response::json(array('state' => 'not save - save error'));
+                	return Response::json(array('saved' => 'no - save error'));
                 }
             }
         }
         else{
-        	return Response::json(array('state' => 'not save - not ajax'));	
+        	return Response::json(array('saved' => 'no - not ajax'));	
         }
 	}
 
