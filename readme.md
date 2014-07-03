@@ -1,15 +1,12 @@
-## Laravel PHP Framework
+## UNIV
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
 [![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-UNIV
-=======
-
 Sistema de información y administración de la UDA
-
+=======
+[![Screen Shot](images/screen1.png)](http://github.com/avgvsto/univ/markdown-edit)
 Servicios básicos a prestar
 ---------------------------
 
@@ -28,6 +25,10 @@ La API está hecha con Laravel 4. Vamos a usar este framework como base para la 
 * [JQuery-Mobile] - UI responsive para móviles
 * [MySQL] - Como DB, a definir 
 
+### Editores del sistema
+
+* Octavio Coria
+* Tadeo Riveros Koloszwa
 Licencia
 --------
 MIT
