@@ -7,8 +7,11 @@
 Sistema de información y administración de la UDA
 =======
 Vistas del sistema.
+-------------------
 [![Screen Shot](images/screen1.png)](http://github.com/avgvsto/univ/)
+
 [![Screen Shot](images/screen2.png)](http://github.com/avgvsto/univ/)
+
 Servicios básicos a prestar
 ---------------------------
 
