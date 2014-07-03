@@ -29,6 +29,8 @@ Route::get('/', ['as' => 'home', function(){
 }]);
 
 Route::get('mysubjects/{id}', 'SubjectsController@index');
+Route::get('exam-dates/{id}', 'SubjectsController@examDates');
+Route::get('academic-status/{id}', 'SubjectsController@academicStatus');
 
 Route::get('/', function()
 {
