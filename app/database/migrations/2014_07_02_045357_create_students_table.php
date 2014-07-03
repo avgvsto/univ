@@ -7,7 +7,7 @@ class CreateStudentsTable extends Migration {
 
 	/**
 	 * Run the migrations.
-	 *
+	 *º
 	 * @return void
 	 */
 	public function up()
@@ -19,7 +19,7 @@ class CreateStudentsTable extends Migration {
 			$table->string('name');
 			$table->integer('dni');
 			$table->string('email');
-                        $table->integer('syllabus_id');
+            $table->integer('syllabus_id');
 			$table->timestamps();
 		});
 	}
