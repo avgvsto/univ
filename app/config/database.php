@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'univ',
 			'username'  => 'root',
-			'password'  => 'malbec',
+			'password'  => 'Caterpillar4',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

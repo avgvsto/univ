@@ -28,6 +28,8 @@ Route::get('/', ['as' => 'home', function(){
     return 'Página principal';
 }]);
 
+Route::get('mysubjects/{id}', 'SubjectsController@index');
+
 Route::get('/', function()
 {
 	return View::make('hello');
