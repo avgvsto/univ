@@ -7,8 +7,9 @@ class SubjectsController extends \BaseController {
      *
      * @return Response
      */
-    public function index($id) {
-        $alumno = Student::find($id);
+    public function index($leg) {
+        //$alumno = Student::find($id);
+        $alumno = Student::where('legajo', $leg)->first();
         $plan_estudio = Syllabus::where('id', $alumno->syllabus_id)->get();
         $materias_plan = Subject::where('syllabus_id', $plan_estudio[0]->id)->get();
 
@@ -41,16 +42,18 @@ class SubjectsController extends \BaseController {
      * @param type $id
      * @return type
      */
-    public function academicStatus($id) {
-        $alumno = Student::find($id);
-        $estado = Academic_Situation::where('student_id', $id)->get();
+    public function academicStatus($leg) {
+        //$alumno = Student::find($id);
+        $alumno = Student::where('legajo', $leg)->first();
+        //$estado = Academic_Situation::where('student_id', $id)->get();
+        $estado = Academic_Situation::where('student_id', $alumno->id)->get();
         $academics = array();
         foreach ($estado as $materia) {
             $nombres = Subject::where('id', $materia->subject_id)->get();
             foreach ($nombres as $nombre) {
                 $academics[] = array(
                     'id' => $materia->subject_id,
-                    'subject-name' => $nombre->name,
+                    'subject_name' => $nombre->name,
                     'status' => $materia->situation
                 );
             }
@@ -59,8 +62,9 @@ class SubjectsController extends \BaseController {
     }
 
     //obtenemos las fechas de examanes para un alumno en particular
-    public function examDates($id) {
-        $alumno = Student::find($id);
+    public function examDates($leg) {
+        //$alumno = Student::find($id);
+        $alumno = Student::where('legajo', $leg)->first();
         //plan del alumno
         $plan_estudio = Syllabus::where('id', $alumno->syllabus_id)->get();
         //mesas del plan
@@ -72,7 +76,7 @@ class SubjectsController extends \BaseController {
             foreach ($nombres as $nombre) {
                 $nombre_materia[] = array(
                     'id' => $mesas->subject_id,
-                    'subject-name' => $nombre->name,
+                    'subject_name' => $nombre->name,
                     'call' => $mesas->call
                 );
             }
