@@ -4,7 +4,7 @@
 [![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-Sistema de información y administración de la UDA
+Back-end sistema para teléfono
 =======
 Vistas del sistema.
 -------------------
