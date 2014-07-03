@@ -2,92 +2,83 @@
 
 class SubjectsController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index($id)
-	{
-            $alumno = Student::find($id);
-            $plan_estudio = Syllabus::where('id', $alumno->syllabus_id)->get();
-            $materias_plan = Subject::where('syllabus_id', $plan_estudio[0]->id)->get();
-            
-            $datos_alumno = array('alumno'=>$alumno, 'plan_estudio'=>$plan_estudio, 'materias_plan'=>$materias_plan);
-            return  Response::json($datos_alumno);
-	}
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index($id) {
+        $alumno = Student::find($id);
+        $plan_estudio = Syllabus::where('id', $alumno->syllabus_id)->get();
+        $materias_plan = Subject::where('syllabus_id', $plan_estudio[0]->id)->get();
 
+        $alumno_clean = array(
+            'surename' => $alumno->surename,
+            'name' => $alumno->name,
+            'dni' => $alumno->dni,
+            'email' => $alumno->email
+        );
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-        
-//        public function 
-	public function create()
-	{
-		//
-	}
+        $plan_clean = array(
+            'name' => $plan_estudio[0]->name
+        );
 
+        $materias_clean = array();
+        foreach ($materias_plan as $materia) {
+            $materias_clean[] = $materia->name;
+        }
+        $datos_alumno = array(
+            'alumno' => $alumno_clean,
+            'plan_estudio' => $plan_clean,
+            'materias_plan' => $materias_clean
+        );
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
+        return Response::json($datos_alumno);
+    }
 
+    /**
+     * 
+     * @param type $id
+     * @return type
+     */
+    public function academicStatus($id) {
+        $alumno = Student::find($id);
+        $estado = Academic_Situation::where('student_id', $id)->get();
+        $academics = array();
+        foreach ($estado as $materia) {
+            $nombres = Subject::where('id', $materia->subject_id)->get();
+            foreach ($nombres as $nombre) {
+                $academics[] = array(
+                    'id' => $materia->subject_id,
+                    'subject-name' => $nombre->name,
+                    'status' => $materia->situation
+                );
+            }
+        }
+        return Response::json($academics);
+    }
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
+    //obtenemos las fechas de examanes para un alumno en particular
+    public function examDates($id) {
+        $alumno = Student::find($id);
+        //plan del alumno
+        $plan_estudio = Syllabus::where('id', $alumno->syllabus_id)->get();
+        //mesas del plan
+        $mesas_plan = Exams::where('syllabus_id', $plan_estudio[0]->id)->get();
 
+        $nombre_materia = array();
+        foreach ($mesas_plan as $mesas) {
+            $nombres = Subject::where('id', $mesas->subject_id)->get();
+            foreach ($nombres as $nombre) {
+                $nombre_materia[] = array(
+                    'id' => $mesas->subject_id,
+                    'subject-name' => $nombre->name,
+                    'call' => $mesas->call
+                );
+            }
+        }
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
+        return Response::json($nombre_materia);
+    }
 
 }

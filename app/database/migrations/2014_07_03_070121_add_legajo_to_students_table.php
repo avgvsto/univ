@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddStudent extends Migration {
+class AddLegajoToStudentsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -14,7 +14,7 @@ class AddStudent extends Migration {
 	{
 		Schema::table('students', function(Blueprint $table)
 		{
-			$table->integer('syllabus_id');
+                    $table->integer('legajo');
 		});
 	}
 
@@ -28,7 +28,7 @@ class AddStudent extends Migration {
 	{
 		Schema::table('students', function(Blueprint $table)
 		{
-			$table->dropColumn('syllabus_id');
+			
 		});
 	}
 

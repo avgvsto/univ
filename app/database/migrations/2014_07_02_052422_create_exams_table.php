@@ -16,6 +16,7 @@ class CreateExamsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('subject_id');
+                        $table->integer('syllabus_id');
 			$table->date('call');
 			$table->timestamps();
 		});
